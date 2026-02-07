@@ -29,10 +29,11 @@ spring:
       hibernate:
         format_sql: true
         default_schema: public
+        dialect: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
 
 server:
-  port: ${DATABASE_PORT:8080}
+  port: ${PORT:8080}   # Render が割り当てるポート
 
 logging:
   level:
