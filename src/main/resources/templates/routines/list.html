@@ -1,31 +1,55 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{layout :: head('1週間のスケジュール')}"></head>
-<body>
-<header th:replace="~{layout :: header}"></header>
-<main class="main container">
-    <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
-    <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
-    <h1 class="page-title">1週間のスケジュール</h1>
-    <div class="week-grid">
+<!doctype html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head th:replace="~{layout :: head('1週間のスケジュール')}"></head>
+  <body>
+    <header th:replace="~{layout :: header}"></header>
+    <main class="main container">
+      <div
+        th:if="${message}"
+        class="alert alert-success"
+        th:text="${message}"
+      ></div>
+      <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+      <h1 class="page-title">1週間のスケジュール</h1>
+      <div class="week-grid">
         <div th:each="day : ${daysOfWeek}" class="day-card">
-            <h2 class="day-name-ja" th:text="${day.getDisplayName(T(java.time.format.TextStyle).FULL, T(java.util.Locale).JAPAN)}">月曜日</h2>
-            <ul>
-                <li th:each="routine : ${weeklyRoutines.get(day)}">
-                    <a th:href="@{/routines/{id}(id=${routine.id})}" th:text="${routine.title}">タイトル</a>
-                    <span class="routine-time" th:text="${routine.startTime.toString().substring(0,5) + '〜' + routine.endTime.toString().substring(0,5) + ' (' + routine.durationMinutes + '分)'}">時間</span>
-                </li>
-                <li th:if="${weeklyRoutines.get(day) == null or weeklyRoutines.get(day).isEmpty()}" class="empty">
-                    <span style="color: var(--text-muted);">予定なし</span>
-                </li>
-            </ul>
+          <h2
+            class="day-name-ja"
+            th:text="${day.getDisplayName(T(java.time.format.TextStyle).FULL, T(java.util.Locale).JAPAN)}"
+          >
+            月曜日
+          </h2>
+          <ul>
+            <li th:each="routine : ${weeklyRoutines.get(day)}">
+              <a
+                th:href="@{/routines/{id}(id=${routine.id})}"
+                th:text="${routine.title}"
+                >タイトル</a
+              >
+              <span
+                class="routine-time"
+                th:text="${routine.startTime.toString().substring(0,5) + '〜' + routine.endTime.toString().substring(0,5) + ' (' + routine.durationMinutes + '分)'}"
+                >時間</span
+              >
+            </li>
+            <li
+              th:if="${weeklyRoutines.get(day) == null or weeklyRoutines.get(day).isEmpty()}"
+              class="empty"
+            >
+              <span style="color: var(--text-muted)">予定なし</span>
+            </li>
+          </ul>
         </div>
-    </div>
-    <p style="margin-top: 1.5rem;">
-        <a th:href="@{/routines/new}" class="btn btn-primary">ルーティーンを追加</a>
-    </p>
-</main>
-<footer th:replace="~{layout :: footer}"></footer>
-</body>
+      </div>
+      <p style="margin-top: 1.5rem">
+        <a th:href="@{/routines/new}" class="btn btn-primary"
+          >ルーティーンを追加</a
+        >
+      </p>
+    </main>
+    <footer th:replace="~{layout :: footer}"></footer>
+  </body>
 </html>
