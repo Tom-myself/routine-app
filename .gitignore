@@ -19,8 +19,6 @@ pom.xml.releaseBackup
 # Spring Boot
 *.log
 .env
-application-local.yml
-application-dev.yml
 
 # H2 local DB
 data/
