@@ -1,6 +1,6 @@
 spring:
   application:
-    name: routine-app
+    name: routine-app-2
   thymeleaf:
     cache: false
   web:
@@ -10,9 +10,9 @@ spring:
       chain:
         cache: false
   datasource:
-    url: jdbc:postgresql://localhost:5433/routine_db
-    username: postgres
-    password: postgres
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 5
