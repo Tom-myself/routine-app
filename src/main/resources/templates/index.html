@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{layout :: head(null)}"></head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+<main class="main container">
+    <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+    <div class="hero">
+        <h1>ルーティーン管理</h1>
+        <p>1日の使える時間から逆算して、1週間分の勉強スケジュールを管理しよう</p>
+        <div sec:authorize="!isAuthenticated()">
+            <a th:href="@{/register}" class="btn btn-primary">新規登録</a>
+            <a th:href="@{/login}" class="btn btn-secondary">ログイン</a>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <a th:href="@{/routines}" class="btn btn-primary">1週間のスケジュールを見る</a>
+        </div>
+    </div>
+</main>
+<footer th:replace="~{layout :: footer}"></footer>
+</body>
+</html>

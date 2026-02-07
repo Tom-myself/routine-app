@@ -1,0 +1,372 @@
+:root {
+    --bg: #0f1419;
+    --surface: #1a2332;
+    --surface-hover: #243044;
+    --border: #2d3a4d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-hover: #79b8ff;
+    --success: #3fb950;
+    --error: #f85149;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 0;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: var(--accent);
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.header nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.header nav a:hover {
+    color: var(--accent);
+}
+
+.header .user {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.logout-form {
+    margin: 0;
+}
+
+.logout-form button {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.logout-form button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.main {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+.alert {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.alert-success {
+    background: rgba(63, 185, 80, 0.15);
+    border: 1px solid var(--success);
+    color: var(--success);
+}
+
+.alert-error {
+    background: rgba(248, 81, 73, 0.15);
+    border: 1px solid var(--error);
+    color: var(--error);
+}
+
+.footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 1rem 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Index / Top */
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+}
+
+.btn-secondary {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--surface-hover);
+}
+
+.btn-danger {
+    background: rgba(248, 81, 73, 0.2);
+    color: var(--error);
+    border: 1px solid var(--error);
+}
+
+.btn-danger:hover {
+    background: rgba(248, 81, 73, 0.3);
+}
+
+/* Weekly list */
+.page-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.week-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.day-card h2 {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    background: var(--surface-hover);
+    border-bottom: 1px solid var(--border);
+}
+
+.day-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.day-card li {
+    padding: 0.6rem 0.75rem;
+    margin-bottom: 0.25rem;
+    background: var(--bg);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.day-card li:last-child {
+    margin-bottom: 0;
+}
+
+.day-card a {
+    color: var(--accent);
+    text-decoration: none;
+    flex: 1;
+}
+
+.day-card a:hover {
+    text-decoration: underline;
+}
+
+.routine-time {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Detail */
+.detail-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.detail-meta {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.detail-description {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    white-space: pre-wrap;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.form-actions .btn {
+    margin-right: 0.5rem;
+}
+
+/* Login / Register */
+.auth-card {
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.auth-card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.auth-card .form-group input {
+    max-width: none;
+}
+
+.auth-card .form-actions {
+    flex-direction: column;
+}
+
+.auth-card .btn {
+    width: 100%;
+    text-align: center;
+}
+
+.auth-card .link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.auth-card .link a {
+    color: var(--accent);
+}
+
+.errors {
+    color: var(--error);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.errors ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.day-name-ja {
+    font-weight: 600;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{layout :: head(${routine.title})}"></head>
+<body>
+<header th:replace="~{layout :: header}"></header>
+<main class="main container">
+    <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+    <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+    <h1 class="detail-title" th:text="${routine.title}">タイトル</h1>
+    <p class="detail-meta">
+        <span th:text="${routine.dayOfWeek.getDisplayName(T(java.time.format.TextStyle).FULL, T(java.util.Locale).JAPAN)}">曜日</span>
+        <span th:text="${routine.startTime.toString().substring(0,5) + '〜' + routine.endTime.toString().substring(0,5)}">時間</span>
+        <span th:text="'（' + routine.durationMinutes + '分）'">所要時間</span>
+    </p>
+    <div th:if="${routine.description != null and !routine.description.isEmpty()}" class="detail-description" th:text="${routine.description}">説明</div>
+    <div class="detail-actions">
+        <a th:href="@{/routines/{id}/edit(id=${routine.id})}" class="btn btn-secondary">編集</a>
+        <form th:action="@{/routines/{id}/delete(id=${routine.id})}" method="post" style="display:inline;" onsubmit="return confirm('削除してよろしいですか？');">
+            <button type="submit" class="btn btn-danger">削除</button>
+        </form>
+        <a th:href="@{/routines}" class="btn btn-secondary">一覧に戻る</a>
+    </div>
+</main>
+<footer th:replace="~{layout :: footer}"></footer>
+</body>
+</html>

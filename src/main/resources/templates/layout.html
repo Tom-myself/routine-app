@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title th:text="${title != null ? title + ' - ルーティーン管理' : 'ルーティーン管理'}">ルーティーン管理</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header class="header" th:fragment="header">
+    <div class="container">
+        <a th:href="@{/}" class="logo">ルーティーン管理</a>
+        <nav sec:authorize="isAuthenticated()">
+            <a th:href="@{/routines}">1週間のスケジュール</a>
+            <a th:href="@{/routines/new}">新規作成</a>
+            <span class="user" sec:authentication="name"></span>
+            <form th:action="@{/logout}" method="post" class="logout-form">
+                <button type="submit">ログアウト</button>
+            </form>
+        </nav>
+        <nav sec:authorize="!isAuthenticated()">
+            <a th:href="@{/login}">ログイン</a>
+            <a th:href="@{/register}">新規登録</a>
+        </nav>
+    </div>
+</header>
+<main class="main container" th:fragment="mainContent">
+    <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+    <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+</main>
+<footer class="footer" th:fragment="footer">
+    <div class="container">© ルーティーン管理アプリ</div>
+</footer>
+</body>
+</html>

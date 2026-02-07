@@ -1,0 +1,22 @@
+# PostgreSQL / Docker なしでローカル実行するとき用（H2 を使用）
+spring:
+  thymeleaf:
+    cache: false
+  web:
+    resources:
+      cache:
+        period: 0
+      chain:
+        cache: false
+  datasource:
+    url: jdbc:h2:file:./data/routine_db
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  devtools:
+    livereload:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
