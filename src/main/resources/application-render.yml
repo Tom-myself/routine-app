@@ -1,0 +1,17 @@
+# Render デプロイ用プロファイル（環境変数で DB を上書き）
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/routine_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+  devtools:
+    restart:
+      enabled: false
+
+logging:
+  level:
+    com.example.routineapp: INFO
+    org.springframework.security: WARN

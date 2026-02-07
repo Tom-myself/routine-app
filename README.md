@@ -95,6 +95,10 @@ src/main/java/com/example/routineapp/
 └── service/         # ビジネスロジック
 ```
 
+## デプロイ（Render）
+
+[Render](https://render.com) へのデプロイ手順（Build/Start コマンド・環境変数）は [docs/DEPLOY_RENDER.md](docs/DEPLOY_RENDER.md) を参照してください。
+
 ## ライセンス
 
 MIT
