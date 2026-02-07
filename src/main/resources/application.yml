@@ -1,6 +1,6 @@
 spring:
   application:
-    name: routine-app-2
+    name: routine-app-1
   thymeleaf:
     cache: false
   web:
@@ -32,7 +32,7 @@ spring:
     open-in-view: false
 
 server:
-  port: ${PORT:8080}
+  port: ${DATABASE_PORT:8080}
 
 logging:
   level:
