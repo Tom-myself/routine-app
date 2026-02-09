@@ -10,9 +10,9 @@ spring:
       chain:
         cache: false
   datasource:
-    url: jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5433}/${DATABASE_NAME:routine_db}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 5
@@ -33,7 +33,7 @@ spring:
     open-in-view: false
 
 server:
-  port: ${PORT:8080}   # Render が割り当てるポート
+  port: ${PORT:8080}   # Render が割り当てるポート、ローカルは8080
 
 logging:
   level:
