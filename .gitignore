@@ -19,6 +19,8 @@ pom.xml.releaseBackup
 # Spring Boot
 *.log
 .env
+credentials.json
+tokens/
 
 # H2 local DB
 data/
